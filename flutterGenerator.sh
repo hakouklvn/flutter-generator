@@ -2,46 +2,28 @@
 
 fileName=$1
 featureFolder=lib/features/"$fileName"
-screenFolder=lib/screens/"$fileName"
 
 # FEATURES FOLDER
-mkdir -p "$featureFolder"/{models,notifiers,providers,services}
-mkdir -p "$screenFolder"/{views,widgets}
-touch "$featureFolder"/"$fileName""_features.dart"
-touch "$screenFolder"/"$fileName.dart"
+mkdir -p "$featureFolder"/{data,domain,presentation}
+mkdir -p "$featureFolder/data"/{models,repositories,datasources}
+mkdir -p "$featureFolder/domain"/{entities,repositories,usecases}
+mkdir -p "$featureFolder/presentation"/{views,widgets,state}
 
-cat > "$featureFolder"/"$fileName""_features.dart" <<EOF
- export 'models/models.dart';
- export 'notifiers/notifiers.dart';
- export 'providers/providers.dart';
- export 'services/services.dart';
-EOF
+# data folder
+touch "$featureFolder"/data/models/"$fileName""_model.dart"
+touch "$featureFolder"/data/repositories/"$fileName""_repository.dart"
+touch "$featureFolder"/data/datasources/"$fileName""_remote_datasource.dart"
+touch "$featureFolder"/data/datasources/"$fileName""_local_datasource.dart"
 
-# models
-touch "$featureFolder"/models/"$fileName""_model.dart" "$featureFolder"/models/models.dart
-cat > "$featureFolder"/models/models.dart <<EOF
- export '${fileName}_model.dart';
-EOF
+# domain folder
+touch "$featureFolder"/domain/entities/"$fileName""_entity.dart"
+touch "$featureFolder"/domain/repositories/"$fileName""_repository.dart"
+touch "$featureFolder"/domain/usecases/"$fileName""_usecase.dart"
 
-# notifiers
-touch "$featureFolder"/notifiers/"$fileName""_notifier.dart" "$featureFolder"/notifiers/notifiers.dart
-cat > "$featureFolder"/notifiers/notifiers.dart <<EOF
- export '${fileName}_notifier.dart';
-EOF
+# presentation folder
+touch "$featureFolder"/presentation/views/"$fileName""_screen.dart"
+touch "$featureFolder"/presentation/widgets/"widgets.dart"
+touch "$featureFolder"/presentation/state/"$fileName""_notifier.dart"
+touch "$featureFolder"/presentation/state/"$fileName""_state.dart"
+touch "$featureFolder"/presentation/state/"providers.dart"
 
-# providers
-touch "$featureFolder"/providers/"$fileName""_provider.dart" "$featureFolder"/providers/providers.dart
-cat > "$featureFolder"/providers/providers.dart <<EOF
- export '${fileName}_provider.dart';
-EOF
-
-# services
-touch "$featureFolder"/services/"$fileName""_service.dart" "$featureFolder"/services/services.dart
-cat > "$featureFolder"/services/services.dart <<EOF
- export '${fileName}_service.dart';
-EOF
-
-# views
-touch "$screenFolder"/views/"$fileName""_screen.dart" "$screenFolder"/views/views.dart
-# widgets
-touch "$screenFolder"/widgets/widgets.dart

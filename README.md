@@ -1,2 +1,18 @@
 # flutter-generator
-generate feature folder contains(model,notifiers,providers,services) and screen folder contains(views,widgets)
+generate boilerplate code for the clean architecture design pattern
+
+features:
+ + data
+   + models
+   + repositories
+   + datasource
+
+ + domain
+   + entities
+   + repositories
+   + usecases
+    
+ + presentation
+   + views
+   + widgets
+   + state
