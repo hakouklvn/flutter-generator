@@ -11,14 +11,13 @@ mkdir -p "$featureFolder/presentation"/{views,widgets,state}
 
 # data folder
 touch "$featureFolder"/data/models/"$fileName""_model.dart"
-touch "$featureFolder"/data/repositories/"$fileName""_repository.dart"
+touch "$featureFolder"/data/repositories/"$fileName""_repository_impl.dart"
 touch "$featureFolder"/data/datasources/"$fileName""_remote_datasource.dart"
 touch "$featureFolder"/data/datasources/"$fileName""_local_datasource.dart"
 
 # domain folder
 touch "$featureFolder"/domain/entities/"$fileName""_entity.dart"
 touch "$featureFolder"/domain/repositories/"$fileName""_repository.dart"
-touch "$featureFolder"/domain/usecases/"$fileName""_usecase.dart"
 
 # presentation folder
 touch "$featureFolder"/presentation/views/"$fileName""_screen.dart"
